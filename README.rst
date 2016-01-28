@@ -17,5 +17,5 @@ Quick start
 2. Include the wechat URLconf in your project urls.py like this::
    url(r'^page/', include('page.urls')),
 
-5. Run 'python manage.py migrate' to create the wechat models.
+3. Run ``python manage.py migrate`` to create the wechat models.
 
