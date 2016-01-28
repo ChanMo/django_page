@@ -1,0 +1,13 @@
+/** scss **/
+image {
+  width: 100%; }
+
+#main {
+  max-width: 720px;
+  margin: 0 auto; }
+
+#date {
+  font-size: 0.8pem;
+  color: #333333; }
+
+/*# sourceMappingURL=app.css.map */

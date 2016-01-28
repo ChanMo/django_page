@@ -1,0 +1,18 @@
+/** scss **/
+$global-font-size: 1pem;
+$primary-color: #000000;
+$second-color: #333333;
+
+image {
+    width: 100%;
+}
+
+#main {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+#date {
+    font-size: $global-font-size*0.8;
+    color: $second-color;
+}
