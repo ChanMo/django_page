@@ -9,7 +9,7 @@ class Page(models.Model):
     intro = models.TextField(verbose_name='描述')
     content = RichTextField(config_name='awesome_ckeditor', verbose_name='内容', blank=True, null=True)
     is_publish = models.BooleanField(default=True, verbose_name='是否发布')
-    template = models.CharField(default='default', verbose_name='模板')
+    template = models.CharField(max_length=100, default='default', verbose_name='模板')
     created = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
     updated = models.DateTimeField(auto_now=True, verbose_name='更新时间')
     def __unicode__(self):
