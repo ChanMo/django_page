@@ -17,4 +17,4 @@ page/static/page/app.css
 page/static/page/app.css.map
 page/static/page/app.scss
 page/static/page/.sass-cache/93f4c7418d6e381b6119a494017fd7f95b46061c/app.scssc
-page/templates/page/page_detail.html
+page/templates/page/default.html
