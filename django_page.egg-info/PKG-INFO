@@ -6,26 +6,47 @@ Home-page: http://github.com/ChanMo/django-page
 Author: Chen
 Author-email: chen.orange@aliyun.com
 License: BSD License
-Description: =============
-        Django-page
-        =============
+Description: Django-page
+        ===========
         
-        Page base django.
-        Detailed documentation is in the "docs" directory
+        基于django的简单页面模块
         
-        Quick start
-        -----------
+        使用说明
+        --------
         
-        1. Add "wechat-page" to your INSTALLED_APPS setting like this::
-           INSTALLED_APPS = (
-               ...
-               'page',
-           )
+        安装依赖:
         
-        2. Include the wechat URLconf in your project urls.py like this::
-           url(r'^page/', include('page.urls')),
+        .. code-block::
         
-        5. Run 'python manage.py migrate' to create the wechat models.
+            pip install django-ckeditor
+        
+        安装django-page:
+        
+        .. code-block::
+        
+            pip install git+https://github.com/ChanMo/django_page.git
+        
+        修改settings.py:
+        
+        .. code-block::
+        
+            INSTALLED_APPS = (
+                ...
+                'page',
+                ...
+            )
+        
+        修改urls.py:
+        
+        .. code-block::
+        
+            url(r'^page/', include('page.urls')),
+        
+        更新数据库:
+        
+        .. code-block::
+        
+            python manage.py migrate
         
         
 Platform: UNKNOWN
