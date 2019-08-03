@@ -1,7 +1,6 @@
-#!/usr/bin/python
-# vim: set fileencoding=utf-8 :
 from django.apps import AppConfig
+from django.utils.translation import gettext_lazy as _
 
 class PageConfig(AppConfig):
-    name = u'page'
-    verbose_name = u'文章'
+    name = 'page'
+    verbose_name = _('page')

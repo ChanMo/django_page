@@ -1,6 +1,7 @@
-from django.conf.urls import url
-from . import views
+from django.urls import path
+from .views import *
 
 urlpatterns = [
-    url(r'(?P<pk>[0-9]+)/$', views.PageView.as_view(), name='page')
+    path('api/<slug:slug>/', PageView.as_view()),
+    path('<slug:slug>/', page_view)
 ]

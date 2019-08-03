@@ -1,19 +1,26 @@
-#!/usr/bin/python
-# vim: set fileencoding=utf8 :
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from ckeditor.fields import RichTextField
 
 class Page(models.Model):
-    title = models.CharField(max_length=200, verbose_name='标题')
-    image = models.ImageField(upload_to='page/%Y/%m/%d/', verbose_name='图片', blank=True, null=True)
-    intro = models.TextField(verbose_name='描述')
-    content = RichTextField(config_name='awesome_ckeditor', verbose_name='内容', blank=True, null=True)
-    is_publish = models.BooleanField(default=True, verbose_name='是否发布')
-    template = models.CharField(max_length=100, default='default', verbose_name='模板')
-    created = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
-    updated = models.DateTimeField(auto_now=True, verbose_name='更新时间')
-    def __unicode__(self):
+    parent = models.ForeignKey('self', on_delete=models.CASCADE,
+            blank=True, null=True)
+    title = models.CharField(_('title'), max_length=200)
+    slug = models.SlugField(_('slug'), max_length=200, unique=True)
+    content = RichTextField(_('content'), blank=True, null=True)
+    is_active = models.BooleanField(_('is active'), default=True)
+    template = models.CharField(_('template'), default='detail',
+            max_length=100)
+    created = models.DateTimeField(_('created'), auto_now_add=True)
+    updated = models.DateTimeField(_('updated'), auto_now=True)
+
+    def __str__(self):
         return self.title
-    class Meta(object):
-        verbose_name = '文章'
-        verbose_name_plural = '文章'
+
+    def get_absolute_url(self):
+        return '/page/%s/' % self.slug
+
+    class Meta:
+        ordering = ['-created']
+        verbose_name = _('page')
+        verbose_name_plural = _('page')
